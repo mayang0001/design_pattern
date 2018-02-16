@@ -1,9 +1,13 @@
+#include <iostream>
 #include <string>
 
 class Beverage {
  public:
-  Beverage() {}
-  Beverage(const std::string& d) : description_(d) {}
+  Beverage(const std::string& description = "") 
+      : description_(description) { 
+    std::cout << "constructor is called" << std::endl;
+  }
+
   virtual std::string GetDescription() const { return description_; }
   virtual double Cost() const = 0;
 
@@ -14,18 +18,20 @@ class Beverage {
 class HouseBlend : public Beverage {
  public:
   HouseBlend() : Beverage("House Blend Coffe") {}
+
   double Cost() const override { return 0.89; }
 };
 
 class Espresso : public Beverage {
-public:
+ public:
   Espresso() : Beverage("Espresso Coffe") {}
+
   double Cost() const override { return 1.99; }
 };
 
 class CondimentDecorator : public Beverage {
  public:
-  CondimentDecorator(Beverage* b) : beverage_(b) {}
+  CondimentDecorator(Beverage* beverage) : beverage_(beverage) {}
 
  protected:
   Beverage* beverage_;
@@ -33,10 +39,21 @@ class CondimentDecorator : public Beverage {
 
 class Mocha : public CondimentDecorator {
  public:
-  Mocha(Beverage* b) : CondimentDecorator(b) {}
+  Mocha(Beverage* beverage) : CondimentDecorator(beverage) {}
 
   std::string GetDescription() const override { 
     return beverage_->GetDescription() + " Mocha"; 
   }
   double Cost() const override { return 0.20 + beverage_->Cost(); }
 };
+
+int main() {
+  //Espresso s;
+  //std::cout << s.Cost() << std::endl;
+  Beverage* b = new HouseBlend;
+  Mocha mocha = Mocha(b);
+  mocha = Mocha(&mocha);
+  b = &mocha;
+  std::cout << b->GetDescription() << std::endl;
+  std::cout << b->Cost() << std::endl;
+}

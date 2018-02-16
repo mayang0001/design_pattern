@@ -14,29 +14,29 @@ public:
 };
 
 class NYPizzaIngredientFactory : public PizzaIngredientFactory {
-public:
-	Dough* CreateDough() override;
-	Sauce* CreateSauce() override;
-	Cheese* CreateCheese() override;
-	Clam* CreateClam() override;
+ public:
+  Dough* CreateDough() override;
+  Sauce* CreateSauce() override;
+  Cheese* CreateCheese() override;
+  Clam* CreateClam() override;
 };
 
 Dough* NYPizzaIngredientFactory::CreateDough() {
-	return new Dough();
+  return new Dough();
 }
 
 
 Sauce* NYPizzaIngredientFactory::CreateSauce() {
-	return new Sauce();
+  return new Sauce();
 }
 
 
 Cheese* NYPizzaIngredientFactory::CreateCheese() {
-	return new Cheese();
+  return new Cheese();
 }
 
 Clam* NYPizzaIngredientFactory::CreateClam() {
-	return new Clam();
+  return new Clam();
 }
 
 #endif

@@ -48,12 +48,12 @@ class Mocha : public CondimentDecorator {
 };
 
 int main() {
-  //Espresso s;
-  //std::cout << s.Cost() << std::endl;
+  //Beverage* b;
+  //Mocha mocha = Mocha(b);
+  //mocha = Mocha(&mocha);
+  //b = &mocha;
   Beverage* b = new HouseBlend;
-  Mocha mocha = Mocha(b);
-  mocha = Mocha(&mocha);
-  b = &mocha;
+  b = new Mocha(new Mocha(b));
   std::cout << b->GetDescription() << std::endl;
   std::cout << b->Cost() << std::endl;
 }

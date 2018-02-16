@@ -1,3 +1,6 @@
+#ifndef NY_CLAM_PIZZA_H_
+#define MY_CLAM_PIZZA_H_
+
 #include "pizza.h"
 
 class NYClamPizza : public Pizza {
@@ -27,3 +30,5 @@ void NYClamPizza::cut() {
 void NYClamPizza::box() {
   std::cout<< "New York Clam Pizza is boxed" << std::endl;
 }
+
+#endif

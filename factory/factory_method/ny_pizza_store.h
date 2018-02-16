@@ -1,3 +1,6 @@
+#ifndef PIZZA_STORE_H_
+#define PIZZA_STORE_H_
+
 #include <string>
 
 #include "pizza_store.h"
@@ -15,3 +18,4 @@ Pizza* NYPizzaStore::CreatePizza(const std::string& pizza_type) {
     return new NYClamPizza();
 }
 
+#endif

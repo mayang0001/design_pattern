@@ -1,3 +1,6 @@
+#ifndef PIZZA_STORE_H_
+#define PIZZA_STORE_H_
+
 #include "pizza.h"
 
 class PizzaStore {
@@ -17,3 +20,4 @@ void PizzaStore::OrderPizza(const std::string& pizza_type) {
   delete pizza;
 }
 
+#endif

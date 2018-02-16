@@ -1,3 +1,6 @@
+#ifndef NY_CHEESE_PIZZA_
+#define NY_CHEESE_PIZZA_
+
 #include "pizza.h"
 
 class NYCheesePizza : public Pizza {
@@ -7,6 +10,7 @@ public:
   }
   
   ~NYCheesePizza();
+
   void bake() override;
   void cut() override;
   void box() override;
@@ -27,3 +31,5 @@ void NYCheesePizza::cut() {
 void NYCheesePizza::box() {
   std::cout<< "New York Cheese Pizza is boxed" << std::endl;
 }
+
+#endif

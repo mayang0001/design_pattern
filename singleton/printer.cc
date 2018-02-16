@@ -1,21 +1,21 @@
 #include <iostream>
 
 class Printer {
-public:
-  static Printer& GetPrinter() {
-    static Printer p("may");
-    return p;
+ public:
+  Printer(const Printer&) = delete;
+  Printer& operator=(const Printer&) = delete;
+
+  static Printer& GetPrinter(const std::string& name) {
+    static Printer printer(name);
+    return printer;
   }
 
-  void PrintName() {
+  void PrintName() const {
     std::cout << "Printer name is " << name_ << std::endl;
   }
 
-private:
-  Printer(const std::string& str) 
-      : name_(str) {};
-  Printer(const Printer&);
-  Printer& operator = (const Printer&);
+ private:
+  Printer(const std::string& str) : name_(str) {};
 
   std::string name_;
 };
